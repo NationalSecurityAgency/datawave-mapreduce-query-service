@@ -20,28 +20,13 @@
     <properties>
         <start-class>datawave.microservice.query.mapreduce.MapReduceQueryService</start-class>
         <version.datawave>5.2.0-SNAPSHOT</version.datawave>
-        <version.hadoop>3.3.3</version.hadoop>
+        <version.hadoop>3.3.4</version.hadoop>
         <version.microservice.mapreduce.query.core.job>1.0-SNAPSHOT</version.microservice.mapreduce.query.core.job>
         <version.microservice.starter-query>1.0-SNAPSHOT</version.microservice.starter-query>
         <version.oozie>4.1.0</version.oozie>
     </properties>
     <dependencyManagement>
         <dependencies>
-            <!--            <dependency>-->
-            <!--                <groupId>gov.nsa.datawave.microservice</groupId>-->
-            <!--                <artifactId>mapreduce-query-api</artifactId>-->
-            <!--                <version>${version.microservice.mapreduce-query-api}</version>-->
-            <!--            </dependency>-->
-            <!--            <dependency>-->
-            <!--                <groupId>gov.nsa.datawave.microservice</groupId>-->
-            <!--                <artifactId>spring-boot-starter-datawave-audit</artifactId>-->
-            <!--                <version>${version.microservice.starter-audit}</version>-->
-            <!--            </dependency>-->
-            <!--            <dependency>-->
-            <!--                <groupId>gov.nsa.datawave.webservices</groupId>-->
-            <!--                <artifactId>datawave-ws-client</artifactId>-->
-            <!--                <version>${version.datawave}</version>-->
-            <!--            </dependency>-->
             <dependency>
                 <groupId>gov.nsa.datawave.core</groupId>
                 <artifactId>datawave-core-map-reduce</artifactId>
@@ -58,13 +43,6 @@
                 <artifactId>spring-boot-starter-datawave-query</artifactId>
                 <version>${version.microservice.starter-query}</version>
             </dependency>
-            <!--            <dependency>-->
-            <!--                <groupId>gov.nsa.datawave.microservice</groupId>-->
-            <!--                <artifactId>spring-boot-starter-datawave-query</artifactId>-->
-            <!--                <version>${version.microservice.starter-query}</version>-->
-            <!--                <type>test-jar</type>-->
-            <!--                <scope>test</scope>-->
-            <!--            </dependency>-->
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-common</artifactId>
@@ -156,28 +134,6 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
-        <!--        <dependency>-->
-        <!--            <groupId>gov.nsa.datawave.core</groupId>-->
-        <!--            <artifactId>datawave-core-query</artifactId>-->
-        <!--            <exclusions>-->
-        <!--                <exclusion>-->
-        <!--                    <artifactId>log4j</artifactId>-->
-        <!--                    <groupId>log4j</groupId>-->
-        <!--                </exclusion>-->
-        <!--                <exclusion>-->
-        <!--                    <artifactId>slf4j-reload4j</artifactId>-->
-        <!--                    <groupId>org.slf4j</groupId>-->
-        <!--                </exclusion>-->
-        <!--            </exclusions>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>gov.nsa.datawave.microservice</groupId>-->
-        <!--            <artifactId>mapreduce-query-api</artifactId>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>gov.nsa.datawave.microservice</groupId>-->
-        <!--            <artifactId>spring-boot-starter-datawave-audit</artifactId>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>gov.nsa.datawave.core</groupId>
             <artifactId>datawave-core-map-reduce</artifactId>
@@ -186,22 +142,6 @@
             <groupId>gov.nsa.datawave.microservice</groupId>
             <artifactId>spring-boot-starter-datawave-query</artifactId>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>gov.nsa.datawave.microservice</groupId>-->
-        <!--            <artifactId>spring-boot-starter-datawave-query</artifactId>-->
-        <!--            <type>test-jar</type>-->
-        <!--            <scope>test</scope>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>gov.nsa.datawave.webservices</groupId>-->
-        <!--            <artifactId>datawave-ws-client</artifactId>-->
-        <!--            <exclusions>-->
-        <!--                <exclusion>-->
-        <!--                    <artifactId>slf4j-reload4j</artifactId>-->
-        <!--                    <groupId>org.slf4j</groupId>-->
-        <!--                </exclusion>-->
-        <!--            </exclusions>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
@@ -219,11 +159,6 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.cloud</groupId>-->
-        <!--            <artifactId>spring-cloud-stream-test-support</artifactId>-->
-        <!--            <scope>test</scope>-->
-        <!--        </dependency>-->
     </dependencies>
     <repositories>
         <repository>
@@ -243,47 +178,6 @@
     </repositories>
     <build>
         <plugins>
-            <!--            <plugin>-->
-            <!--                <groupId>org.apache.maven.plugins</groupId>-->
-            <!--                <artifactId>maven-dependency-plugin</artifactId>-->
-            <!--                <executions>-->
-            <!--                    <execution>-->
-            <!--                        <id>unpack-test-resources</id>-->
-            <!--                        <phase>process-test-resources</phase>-->
-            <!--                        <goals>-->
-            <!--                            <goal>unpack</goal>-->
-            <!--                        </goals>-->
-            <!--                        <configuration>-->
-            <!--                            <artifactItems>-->
-            <!--                                <artifactItem>-->
-            <!--                                    <groupId>gov.nsa.datawave.microservice</groupId>-->
-            <!--                                    <artifactId>spring-boot-starter-datawave-query</artifactId>-->
-            <!--                                    <type>test-jar</type>-->
-            <!--                                    <includes>**/application-*.yml</includes>-->
-            <!--                                    <outputDirectory>${project.build.testOutputDirectory}</outputDirectory>-->
-            <!--                                </artifactItem>-->
-            <!--                            </artifactItems>-->
-            <!--                        </configuration>-->
-            <!--                    </execution>-->
-            <!--                    <execution>-->
-            <!--                        <id>unpack</id>-->
-            <!--                        <phase>package</phase>-->
-            <!--                        <goals>-->
-            <!--                            <goal>unpack</goal>-->
-            <!--                        </goals>-->
-            <!--                        <configuration>-->
-            <!--                            <artifactItems>-->
-            <!--                                <artifactItem>-->
-            <!--                                    <groupId>gov.nsa.datawave.microservice</groupId>-->
-            <!--                                    <artifactId>spring-boot-starter-datawave-query</artifactId>-->
-            <!--                                    <includes>**/QueryLogicFactory.xml</includes>-->
-            <!--                                    <outputDirectory>${project.build.outputDirectory}</outputDirectory>-->
-            <!--                                </artifactItem>-->
-            <!--                            </artifactItems>-->
-            <!--                        </configuration>-->
-            <!--                    </execution>-->
-            <!--                </executions>-->
-            <!--            </plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
