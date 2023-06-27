@@ -1,11 +1,11 @@
 package datawave.microservice.query.mapreduce;
 
+import java.io.File;
+
 import org.springframework.boot.loader.tools.Layout;
 import org.springframework.boot.loader.tools.LayoutFactory;
 import org.springframework.boot.loader.tools.Layouts;
 import org.springframework.boot.loader.tools.LibraryScope;
-
-import java.io.File;
 
 public class MapReduceLayoutFactory implements LayoutFactory {
     @Override

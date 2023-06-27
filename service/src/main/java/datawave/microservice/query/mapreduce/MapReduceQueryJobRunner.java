@@ -1,18 +1,18 @@
 package datawave.microservice.query.mapreduce;
 
-import datawave.core.common.connection.AccumuloConnectionFactory;
-import datawave.core.query.logic.QueryLogicFactory;
-import datawave.microservice.query.config.QueryProperties;
-import datawave.microservice.query.mapreduce.config.MapReduceQueryProperties;
-import datawave.microservice.query.mapreduce.jobs.MapReduceJob;
-import datawave.microservice.query.mapreduce.jobs.OozieJob;
-import datawave.microservice.query.mapreduce.remote.MapReduceQueryRequest;
-import datawave.microservice.query.mapreduce.remote.MapReduceQueryRequestHandler;
-import datawave.microservice.query.mapreduce.status.MapReduceQueryCache;
-import datawave.microservice.query.mapreduce.status.MapReduceQueryStatus;
-import datawave.security.util.ProxiedEntityUtils;
-import datawave.webservice.query.exception.DatawaveErrorCode;
-import datawave.webservice.query.exception.QueryException;
+import static datawave.microservice.query.mapreduce.jobs.OozieJob.OOZIE_CLIENT;
+import static datawave.microservice.query.mapreduce.jobs.OozieJob.OUT_DIR;
+import static datawave.microservice.query.mapreduce.remote.MapReduceQueryRequest.Method.OOZIE_SUBMIT;
+import static datawave.microservice.query.mapreduce.remote.MapReduceQueryRequest.Method.SUBMIT;
+
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
+import java.util.Properties;
+import java.util.function.Supplier;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapreduce.InputFormat;
@@ -26,18 +26,19 @@ import org.springframework.cloud.bus.event.RemoteMapReduceQueryRequestEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.util.Map;
-import java.util.Properties;
-import java.util.function.Supplier;
-
-import static datawave.microservice.query.mapreduce.jobs.OozieJob.OOZIE_CLIENT;
-import static datawave.microservice.query.mapreduce.jobs.OozieJob.OUT_DIR;
-import static datawave.microservice.query.mapreduce.remote.MapReduceQueryRequest.Method.OOZIE_SUBMIT;
-import static datawave.microservice.query.mapreduce.remote.MapReduceQueryRequest.Method.SUBMIT;
+import datawave.core.common.connection.AccumuloConnectionFactory;
+import datawave.core.query.logic.QueryLogicFactory;
+import datawave.microservice.query.config.QueryProperties;
+import datawave.microservice.query.mapreduce.config.MapReduceQueryProperties;
+import datawave.microservice.query.mapreduce.jobs.MapReduceJob;
+import datawave.microservice.query.mapreduce.jobs.OozieJob;
+import datawave.microservice.query.mapreduce.remote.MapReduceQueryRequest;
+import datawave.microservice.query.mapreduce.remote.MapReduceQueryRequestHandler;
+import datawave.microservice.query.mapreduce.status.MapReduceQueryCache;
+import datawave.microservice.query.mapreduce.status.MapReduceQueryStatus;
+import datawave.security.util.ProxiedEntityUtils;
+import datawave.webservice.query.exception.DatawaveErrorCode;
+import datawave.webservice.query.exception.QueryException;
 
 @Service
 public class MapReduceQueryJobRunner implements MapReduceQueryRequestHandler {
