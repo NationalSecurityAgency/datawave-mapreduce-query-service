@@ -169,17 +169,13 @@ public class MapReduceQueryJobRunner implements MapReduceQueryRequestHandler {
             mapReduceQueryStatus.setJobTracker(mapReduceJob.getMapReduceJobProperties().getJobTracker());
             mapReduceQueryStatus.setHdfsUri(mapReduceJob.getMapReduceJobProperties().getHdfsUri());
             mapReduceQueryStatus.setState(MapReduceQueryStatus.MapReduceQueryState.SUBMITTED);
-        } catch (QueryException e) {
-            mapReduceQueryStatus.setErrorCode(DatawaveErrorCode.findCode(e.getErrorCode()));
-            mapReduceQueryStatus.setFailureMessage(e.getMessage());
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            PrintWriter writer = new PrintWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
-            e.printStackTrace(writer);
-            writer.close();
-            mapReduceQueryStatus.setState(MapReduceQueryStatus.MapReduceQueryState.FAILED);
-            mapReduceQueryStatus.setStackTrace(new String(outputStream.toByteArray(), StandardCharsets.UTF_8));
         } catch (Exception e) {
-            mapReduceQueryStatus.setErrorCode(DatawaveErrorCode.UNKNOWN_SERVER_ERROR);
+            // @formatter:off
+            mapReduceQueryStatus.setErrorCode((e instanceof QueryException) ?
+                    DatawaveErrorCode.findCode(((QueryException) e).getErrorCode()) :
+                    DatawaveErrorCode.UNKNOWN_SERVER_ERROR);
+            // @formatter:on
+            
             mapReduceQueryStatus.setFailureMessage(e.getMessage());
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             PrintWriter writer = new PrintWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
