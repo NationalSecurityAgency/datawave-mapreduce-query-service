@@ -162,7 +162,6 @@ public class MapReduceQueryJobRunner implements MapReduceQueryRequestHandler {
             log.info("JOB ID: " + mapReduceJobId);
             
             // This is used to lookup the query id when the mapreduce callback comes in
-            // TODO: JWO: Should we use a CustomJobEndNotifier that passes the map reduce query id to the update state call instead?
             mapReduceQueryCache.putQueryIdByJobIdLookup(mapReduceJobId.toString(), mapReduceQueryStatus.getId());
             
             mapReduceQueryStatus.setJobId(mapReduceJobId.toString());
@@ -208,7 +207,6 @@ public class MapReduceQueryJobRunner implements MapReduceQueryRequestHandler {
             log.info("JOB ID: " + jobId);
             
             // This is used to lookup the query id when the mapreduce callback comes in
-            // TODO: JWO: Should we use a CustomJobEndNotifier that passes the map reduce query id to the update state call instead?
             mapReduceQueryCache.putQueryIdByJobIdLookup(jobId, mapReduceQueryStatus.getId());
             
             // the oozie workflow definitions will add the workflow id to outDir to get the full output path
