@@ -6,7 +6,7 @@ LABEL version=${project.version} \
 
 ADD ${project.build.finalName}-exec.jar /app.jar
 ADD mapreduce-query-core-job-*.jar /MapReduceQueryCoreJob.jar
-RUN apk add libc6-compat curl
+RUN apk --no-cache add libc6-compat curl && chmod 777 /app.jar
 
 EXPOSE 8443 8080
 ENTRYPOINT ["java","-jar","app.jar"]
