@@ -19,8 +19,8 @@
     </scm>
     <properties>
         <version.datawave>7.0.0</version.datawave>
-        <version.microservice.mapreduce-layout-factory>1.0.0</version.microservice.mapreduce-layout-factory>
-        <version.microservice.starter-query>1.0.0</version.microservice.starter-query>
+        <version.mapreduce-layout-factory>1.0.0</version.mapreduce-layout-factory>
+        <version.starter-query>1.0.0</version.starter-query>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -46,7 +46,7 @@
             <dependency>
                 <groupId>gov.nsa.datawave.microservice</groupId>
                 <artifactId>spring-boot-starter-datawave-query</artifactId>
-                <version>${version.microservice.starter-query}</version>
+                <version>${version.starter-query}</version>
                 <exclusions>
                     <exclusion>
                         <artifactId>*</artifactId>
@@ -61,7 +61,7 @@
             <dependency>
                 <groupId>gov.nsa.datawave.microservice</groupId>
                 <artifactId>spring-boot-starter-datawave-query</artifactId>
-                <version>${version.microservice.starter-query}</version>
+                <version>${version.starter-query}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -109,7 +109,7 @@
                     <dependency>
                         <groupId>gov.nsa.datawave.microservice</groupId>
                         <artifactId>mapreduce-layout-factory</artifactId>
-                        <version>${version.microservice.mapreduce-layout-factory}</version>
+                        <version>${version.mapreduce-layout-factory}</version>
                     </dependency>
                 </dependencies>
                 <configuration combine.self="override">
