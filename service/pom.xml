@@ -20,10 +20,10 @@
     <properties>
         <start-class>datawave.microservice.query.mapreduce.MapReduceQueryService</start-class>
         <version.datawave>7.0.0</version.datawave>
+        <version.datawave.mapreduce.query.core.job>1.0.0</version.datawave.mapreduce.query.core.job>
+        <version.datawave.starter-query>1.0.0</version.datawave.starter-query>
         <version.hadoop>3.3.4</version.hadoop>
-        <version.mapreduce.query.core.job>1.0.0</version.mapreduce.query.core.job>
         <version.oozie>4.1.0</version.oozie>
-        <version.starter-query>1.0.0</version.starter-query>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -41,7 +41,7 @@
             <dependency>
                 <groupId>gov.nsa.datawave.microservice</groupId>
                 <artifactId>spring-boot-starter-datawave-query</artifactId>
-                <version>${version.starter-query}</version>
+                <version>${version.datawave.starter-query}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
@@ -127,7 +127,7 @@
             <dependency>
                 <groupId>gov.nsa.datawave.microservice</groupId>
                 <artifactId>spring-boot-starter-datawave-query</artifactId>
-                <version>${version.starter-query}</version>
+                <version>${version.datawave.starter-query}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -213,7 +213,7 @@
                                         <artifactItem>
                                             <groupId>gov.nsa.datawave.microservice</groupId>
                                             <artifactId>mapreduce-query-core-job</artifactId>
-                                            <version>${version.mapreduce.query.core.job}</version>
+                                            <version>${version.datawave.mapreduce.query.core.job}</version>
                                             <type>jar</type>
                                             <outputDirectory>${project.build.directory}/docker</outputDirectory>
                                         </artifactItem>
