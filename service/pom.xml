@@ -8,7 +8,7 @@
         <relativePath>../../../microservice-service-parent/pom.xml</relativePath>
     </parent>
     <artifactId>mapreduce-query-service</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <description>DATAWAVE MapReduce Query Microservice</description>
     <url>https://github.com/NationalSecurityAgency/datawave-mapreduce-query-service</url>
     <scm>
@@ -21,8 +21,8 @@
         <start-class>datawave.microservice.query.mapreduce.MapReduceQueryService</start-class>
         <version.datawave>7.2.0-SNAPSHOT</version.datawave>
         <version.hadoop>3.3.4</version.hadoop>
-        <version.microservice.mapreduce.query.core.job>1.0.0</version.microservice.mapreduce.query.core.job>
-        <version.microservice.starter-query>1.0.1-SNAPSHOT</version.microservice.starter-query>
+        <version.microservice.mapreduce.query.core.job>1.0.1</version.microservice.mapreduce.query.core.job>
+        <version.microservice.starter-query>1.0.2-SNAPSHOT</version.microservice.starter-query>
         <version.oozie>4.1.0</version.oozie>
     </properties>
     <dependencyManagement>
@@ -134,13 +134,16 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
-        <dependency>
-            <groupId>gov.nsa.datawave.core</groupId>
-            <artifactId>datawave-core-map-reduce</artifactId>
-        </dependency>
+        <!-- Don't sort the import scope dependencies since we are relying on them to manage various artifact versions -->
+        <?SORTPOM IGNORE?>
         <dependency>
             <groupId>gov.nsa.datawave.microservice</groupId>
             <artifactId>spring-boot-starter-datawave-query</artifactId>
+        </dependency>
+        <?SORTPOM RESUME?>
+        <dependency>
+            <groupId>gov.nsa.datawave.core</groupId>
+            <artifactId>datawave-core-map-reduce</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>

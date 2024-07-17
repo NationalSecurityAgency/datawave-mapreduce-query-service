@@ -8,7 +8,7 @@
         <relativePath>../../../../microservice-service-parent/pom.xml</relativePath>
     </parent>
     <artifactId>mapreduce-query-core-job</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <description>DATAWAVE MapReduce Query Core Job</description>
     <url>https://github.com/NationalSecurityAgency/datawave-mapreduce-query-service</url>
     <scm>
@@ -20,7 +20,7 @@
     <properties>
         <version.datawave>7.2.0-SNAPSHOT</version.datawave>
         <version.microservice.mapreduce-layout-factory>1.0.0</version.microservice.mapreduce-layout-factory>
-        <version.microservice.starter-query>1.0.1-SNAPSHOT</version.microservice.starter-query>
+        <version.microservice.starter-query>1.0.2-SNAPSHOT</version.microservice.starter-query>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -42,6 +42,11 @@
                         <groupId>org.apache.hadoop.thirdparty</groupId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>gov.nsa.datawave.microservice</groupId>
+                <artifactId>mapreduce-layout-factory</artifactId>
+                <version>${version.microservice.mapreduce-layout-factory}</version>
             </dependency>
             <dependency>
                 <groupId>gov.nsa.datawave.microservice</groupId>
@@ -75,6 +80,11 @@
         <dependency>
             <groupId>gov.nsa.datawave.microservice</groupId>
             <artifactId>spring-boot-starter-datawave-query</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>gov.nsa.datawave.microservice</groupId>
+            <artifactId>mapreduce-layout-factory</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <repositories>
