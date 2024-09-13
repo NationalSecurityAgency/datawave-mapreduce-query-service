@@ -20,7 +20,7 @@
     <properties>
         <start-class>datawave.microservice.query.mapreduce.MapReduceQueryService</start-class>
         <version.datawave>7.1.2</version.datawave>
-        <version.datawave.mapreduce.query.core.job>1.0.1</version.datawave.mapreduce.query.core.job>
+        <version.datawave.mapreduce-query-core-job>1.0.1</version.datawave.mapreduce-query-core-job>
         <version.datawave.starter-query>1.0.1</version.datawave.starter-query>
         <version.hadoop>3.3.4</version.hadoop>
         <version.oozie>4.1.0</version.oozie>
@@ -216,7 +216,7 @@
                                         <artifactItem>
                                             <groupId>gov.nsa.datawave.microservice</groupId>
                                             <artifactId>mapreduce-query-core-job</artifactId>
-                                            <version>${version.datawave.mapreduce.query.core.job}</version>
+                                            <version>${version.datawave.mapreduce-query-core-job}</version>
                                             <type>jar</type>
                                             <outputDirectory>${project.build.directory}/docker</outputDirectory>
                                         </artifactItem>
