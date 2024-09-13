@@ -46,7 +46,7 @@
             <dependency>
                 <groupId>gov.nsa.datawave.microservice</groupId>
                 <artifactId>mapreduce-layout-factory</artifactId>
-                <version>${version.microservice.mapreduce-layout-factory}</version>
+                <version>${version.datawave.mapreduce-layout-factory}</version>
             </dependency>
             <dependency>
                 <groupId>gov.nsa.datawave.microservice</groupId>
