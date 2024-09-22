@@ -22,7 +22,7 @@
         <version.datawave>7.7.0-SNAPSHOT</version.datawave>
         <version.hadoop>3.3.4</version.hadoop>
         <version.microservice.mapreduce.query.core.job>1.0.4</version.microservice.mapreduce.query.core.job>
-        <version.microservice.starter-query>1.0.8-SNAPSHOT</version.microservice.starter-query>
+        <version.microservice.starter-query>1.0.9-SNAPSHOT</version.microservice.starter-query>
         <version.oozie>4.1.0</version.oozie>
     </properties>
     <dependencyManagement>
