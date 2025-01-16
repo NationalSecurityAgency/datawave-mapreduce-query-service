@@ -23,7 +23,7 @@
         <version.datawave.core.connection-pool>7.3.0</version.datawave.core.connection-pool>
         <version.datawave.mapreduce-query-core-job>1.0.4</version.datawave.mapreduce-query-core-job>
         <version.datawave.starter-query>1.0.5</version.datawave.starter-query>
-        <version.hadoop>3.3.5</version.hadoop>
+        <version.hadoop>3.3.6</version.hadoop>
         <version.oozie>4.1.0</version.oozie>
     </properties>
     <dependencyManagement>
